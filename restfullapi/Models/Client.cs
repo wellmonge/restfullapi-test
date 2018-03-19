@@ -7,9 +7,9 @@ namespace restfullapi.Models
 {
     public class Client
     {
-        public int Client_id { get; set; }
-        public string Client_name { get; set; }
-        public string Client_desc { get; set; }
-        public string Cpf { get; set; }
+        public int client_id { get; set; }
+        public string client_name { get; set; }
+        public string client_desc { get; set; }
+        public string cpf { get; set; }
     }
 }
