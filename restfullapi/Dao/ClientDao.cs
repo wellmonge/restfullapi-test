@@ -64,10 +64,50 @@ namespace restfullapi.Dao
             {
                 using (var con = _conn)
                 {
-                    con.Execute(@"insert client 
-                                ( client_name, client_desc, cpf) 
-                                values 
-                                ( @client_name, @client_desc, @cpf)", client);
+                    con.Execute(@"INSERT INTO client
+                                VALUES (@client_id, @client_name, @client_desc, @cpf)", client);
+                }
+
+                return true;
+            }
+            catch (System.Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
+
+        public bool UpdateClient(long id, Client client)
+        {
+            try
+            {
+                using (var con = _conn)
+                {
+                    con.Execute(@"UPDATE client 
+                                    SET client_id = @client_id, 
+                                    client_name = @client_name , 
+                                    client_desc = @client_desc , 
+                                    cpf = @cpf where client_id = @client_id", client);
+                }
+
+                return true;
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
+        }
+
+
+
+        public bool DeleteClient(long id)
+        {
+            try
+            {
+                using (var con = _conn)
+                {
+                    con.Execute(@"DELETE CLIENT WHERE client_id= @client_id", new { client_id = id });
                 }
 
                 return true;

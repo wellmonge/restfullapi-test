@@ -25,8 +25,8 @@ namespace restfullapi
             services.AddSingleton<IConfiguration>(
                 _ => Configuration);
             services.AddTransient<ClientDao>();
-            services.AddTransient<ProductDao>();
-            services.AddTransient<ProductOrderDao>();
+
+
             services.AddMvc();
         }
 
