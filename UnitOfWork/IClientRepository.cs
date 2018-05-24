@@ -1,6 +1,6 @@
 ﻿namespace UnitOfWork
 {
-    internal interface IClientRepository
+    public interface IClientRepository
     {
     }
 }

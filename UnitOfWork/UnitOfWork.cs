@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 
+using System.Data.SqlClient;
 
 namespace UnitOfWork
 {
@@ -21,9 +22,8 @@ namespace UnitOfWork
 
         public IClientRepository ClientRepository
         {
-            get { return _clientRepository ?? (_clientRepository = new IClientRepository(_transaction)); }
+            get { return _clientRepository ?? (_clientRepository = new ClientRepository(_transaction)); }
         }
-        
 
         public void Commit()
         {
